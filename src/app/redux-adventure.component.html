@@ -3,3 +3,4 @@
 </h1>
 <console [list]="dungeon.console"></console>
 <parser *ngIf="!dungeon.won" (action)="handleAction($event)"></parser>
+<map [rooms]="dungeon.rooms" [currentRoom]="dungeon.currentRoom"></map>

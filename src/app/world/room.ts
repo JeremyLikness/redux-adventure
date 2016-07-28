@@ -7,6 +7,8 @@ export class Room {
     public walls: Directions[] = [];
     public name: string = '';
     public description: string = '';
+    public idx: number = -1;
+    public visited: boolean = false;
 
     public get longDescription(): string {
         let text = this.name + ': ' + this.description + '\r\n';

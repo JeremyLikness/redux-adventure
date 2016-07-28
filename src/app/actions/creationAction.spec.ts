@@ -43,7 +43,8 @@ describe('createAction', () => {
         it('should return a directional action with the new room if an exit exists', () => {
             expect(createAction(dm, ACTION_EAST)).toEqual({
                 type: ACTION_MOVE,
-                direction: Directions.East
+                direction: Directions.East,
+                newRoom: room2 
             });
         });
     });

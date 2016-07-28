@@ -5,13 +5,14 @@ import { mainReducer } from './reducers/reducer.main';
 import { createAction } from './actions/createAction';
 import { ConsoleComponent } from './console';
 import { ParserComponent } from './parser';
+import { MapComponent } from './map';
 
 @Component({
   moduleId: module.id,
   selector: 'redux-adventure-app',
   templateUrl: 'redux-adventure.component.html',
   styleUrls: ['redux-adventure.component.css'],
-  directives: [ConsoleComponent, ParserComponent]
+  directives: [ConsoleComponent, ParserComponent, MapComponent]
 })
 export class ReduxAdventureAppComponent {
   

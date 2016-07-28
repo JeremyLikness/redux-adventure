@@ -28,6 +28,9 @@ describe('rooms', () => {
         room2.things.push(thing2);
         room3 = new Room();
         roomList = [room1, room2, room3];
+        room1.idx = 0;
+        room2.idx = 1,
+        room3.idx = 2;
 
         Object.freeze(thing1);
         Object.freeze(thing2);
@@ -49,6 +52,7 @@ describe('rooms', () => {
         } as IInventoryAction;
 
         let room2empty = new Room();
+        room2empty.idx = 1;
         let expectedState = [room1, room2empty, room3];
 
         Object.freeze(action);

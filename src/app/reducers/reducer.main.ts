@@ -47,7 +47,7 @@ const moveReducer = (state: Dungeon, action: IRoomAction) => {
         text: 'You move ' + Directions[action.direction] + '.'
     } as ITextAction);
     let newRoom = newState.currentRoom.directions[action.direction];
-    newState.currentRoomIdx = newState.rooms.indexOf(newRoom);
+    newState.currentRoomIdx = newRoom.idx;
     newState.console.push(newState.currentRoom.longDescription);
     return newState;
 }

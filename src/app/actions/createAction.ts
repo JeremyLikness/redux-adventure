@@ -35,6 +35,7 @@ export interface ITextAction extends IAction {
 export interface IRoomAction extends IAction {
     type: string;
     direction: Directions;
+    newRoom: Room;
 }
 
 export interface IInventoryAction extends IAction {
@@ -96,7 +97,8 @@ const checkDirection = (dungeon: Dungeon, dir: Directions) => {
     }
     return {
         type: ACTION_MOVE, 
-        direction: dir
+        direction: dir,
+        newRoom: dungeon.currentRoom.directions[dir]
     } as IRoomAction;
 }
 

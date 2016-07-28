@@ -17,10 +17,11 @@ let generateRooms = (dungeon: Dungeon) => {
     
     for (let x = 0; x < 100; x += 1) {
         let room = new Room();
+        room.idx = x; 
         let description = extractRandom(seed.rooms).description;
         let wall = extractRandom(seed.walls).description;
         let feature = extractRandom(seed.features).description;
-        room.name = 'A ' + description + 'room';
+        room.name = 'A ' + description + ' room';
         room.description = 'You are standing inside a ' + description + ' room. You are surrounded by ' + wall 
             + '. ' + feature;
         dungeon.rooms.push(room);
@@ -69,21 +70,25 @@ let connectRooms = (dungeon: Dungeon) => {
         for (let westToEast = 1; westToEast < 9; westToEast += 1) {
             let cell = northToSouth * 10 + westToEast;
             let room = dungeon.rooms[cell];
-            if (room.walls.length > 2) {
+            if (room.walls.length > 0) {
                 continue;
             }
-            let wall = <Directions>(Math.floor(Math.random()*4));
-            room.setDirection(wall, null);
-            if (!room.walls.find(w => w === wall)) {
-                room.walls.push(wall);
-            }
-            let otherRoom = room.getDirection(wall);
-            if (otherRoom !== null) {
-                otherRoom.setDirection(InversionMap[wall], null);
-                if (!otherRoom.walls.find(w => w === InversionMap[wall])) {
-                    otherRoom.walls.push(InversionMap[wall]);
+            let options: {dir: Directions, room: Room}[] = [];
+            for (let idx = 0; idx < room.directions.length; idx += 1) {
+                if (room.directions[idx] !== null) {
+                    options.push({dir: idx, room: room.directions[idx]});
                 }
             } 
+            let wall = options[Math.floor(Math.random()*options.length)];
+            if (wall.room.walls.length > 0) {
+                continue;
+            }
+            // this room loses the reference and gains a wall 
+            room.setDirection(wall.dir, null);
+            room.walls.push(wall.dir);
+            // other room loses the reference and gains a wall 
+            wall.room.setDirection(InversionMap[wall.dir], null);
+            wall.room.walls.push(InversionMap[wall.dir]);
         }
     }
 
@@ -109,6 +114,7 @@ export const DungeonMaster: () => Dungeon = () => {
     dungeon = connectRooms(dungeon);
     dungeon = placeArtifacts(dungeon);
     dungeon.currentRoomIdx = Math.floor(Math.random()*100); 
+    dungeon.currentRoom.visited = true;
     dungeon.console.push(dungeon.currentRoom.longDescription);
 
     return dungeon; 

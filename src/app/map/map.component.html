@@ -1,0 +1,5 @@
+<div class="grid">
+  <div *ngFor="let row of grid" class="row">
+    <cell *ngFor="let cell of row" [room]="cell" [isCurrentRoom]="currentRoom === cell"></cell>
+  </div>
+</div>

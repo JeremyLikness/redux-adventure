@@ -23,16 +23,10 @@ describe('Room', () => {
         expect(dm.rooms).not.toBeNull();
         expect(dm.rooms.length).toBe(100);
   });
-  it('should ensure every room has at least one wall', () => {
+  it('should ensure every room has at most two walls', () => {
       for (let idx = 0; idx < dm.rooms.length; idx+=1) {
           let room = dm.rooms[idx];
-          expect(room.walls.length).toBeGreaterThan(0);
-      }
-  });
-  it('should ensure every room has at most three walls', () => {
-      for (let idx = 0; idx < dm.rooms.length; idx+=1) {
-          let room = dm.rooms[idx];
-          expect(room.walls.length).toBeLessThan(4);
+          expect(room.walls.length).toBeLessThan(3);
       }
   });
   it('should place all artifacts in the rooms', () => {

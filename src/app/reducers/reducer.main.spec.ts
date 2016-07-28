@@ -37,6 +37,9 @@ describe('main', () => {
         dungeon.currentRoomIdx = 0;
         dungeon.trophyCount = 2; 
 
+        room1.idx = 0;
+        room2.idx = 1;
+
         Object.freeze(thing1);
         freezeRoom(room1);
         freezeRoom(room2);
@@ -59,11 +62,12 @@ describe('main', () => {
     it('should update the current room on a move', () => {
         let newState = mainReducer(dungeon, {
             type: ACTION_MOVE, 
-            direction: Directions.East 
+            direction: Directions.East,
+            newRoom: room2
         } as IRoomAction);
-        expect(newState.rooms).toEqual(dungeon.rooms);
-        expect(newState.currentRoom).toEqual(room2);
-        expect(newState.console.length).toBeGreaterThan(0);
+        
+        expect(newState.currentRoom.idx).toEqual(room2.idx);
+        expect(newState.currentRoom.visited).toBe(true);
     });
 
     it('should transfer inventory on a get', () => {
