@@ -3,6 +3,7 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'redux' : 'vendor/redux/dist/redux.js'
 };
 
 /** User packages configuration. */
@@ -29,6 +30,8 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/console',
+  'app/parser',
   /** @cli-barrel */
 ];
 

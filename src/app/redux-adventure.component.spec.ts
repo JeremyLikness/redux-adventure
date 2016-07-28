@@ -15,8 +15,4 @@ describe('App: ReduxAdventure', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'redux-adventure works!\'',
-      inject([ReduxAdventureAppComponent], (app: ReduxAdventureAppComponent) => {
-    expect(app.title).toEqual('redux-adventure works!');
-  }));
 });

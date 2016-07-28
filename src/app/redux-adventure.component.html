@@ -1,3 +1,5 @@
 <h1>
   {{title}}
 </h1>
+<console [list]="dungeon.console"></console>
+<parser *ngIf="!dungeon.won" (action)="handleAction($event)"></parser>
