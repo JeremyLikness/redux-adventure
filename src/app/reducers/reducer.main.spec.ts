@@ -10,8 +10,8 @@ import { Dungeon } from '../world/dungeon';
 import { Thing } from '../world/thing';
 import { Room } from '../world/room';
 import { Directions } from '../world/directions';
-import { IInventoryAction, IRoomAction } from '../actions/createAction';
-import { ACTION_TEXT, ACTION_MOVE } from '../actions/ActionList';
+import { IInventoryAction, IRoomAction, IWonAction } from '../actions/createAction';
+import { ACTION_TEXT, ACTION_MOVE, ACTION_GET, ACTION_WON } from '../actions/ActionList';
 import { ITextAction } from '../actions/createAction';
 import { mainReducer } from './reducer.main';
 import { freezeRoom } from './freeze.room.spec';
@@ -64,6 +64,27 @@ describe('main', () => {
         expect(newState.rooms).toEqual(dungeon.rooms);
         expect(newState.currentRoom).toEqual(room2);
         expect(newState.console.length).toBeGreaterThan(0);
+    });
+
+    it('should transfer inventory on a get', () => {
+        let newState = mainReducer(dungeon, {
+            type: ACTION_GET,
+            item: thing1, 
+            room: room2
+        } as IInventoryAction);
+        expect(newState.inventory).toEqual([thing1]); 
+        expect(newState.rooms[1].things).toEqual([]);
+    });
+
+    it('should transfer inventory and set the won flag on a win', () => {
+        let newState = mainReducer(dungeon, {
+            type: ACTION_WON,
+            item: thing1, 
+            room: room2
+        } as IWonAction);
+        expect(newState.inventory).toEqual([thing1]); 
+        expect(newState.rooms[1].things).toEqual([]);
+        expect(newState.won).toBe(true);
     });
 
 });

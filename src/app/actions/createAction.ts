@@ -43,6 +43,8 @@ export interface IInventoryAction extends IAction {
     room: Room;
 }
 
+export interface IWonAction extends IInventoryAction { }
+
 export interface IActionCreator {
     (dungeon: Dungeon, actionText: string): IAction;
 }
@@ -111,7 +113,7 @@ const checkInventory = (dungeon: Dungeon) => {
     } as ITextAction;
 }
 
-const checkGet = (dungeon: Dungeon) => {
+const checkGet: (dungeon: Dungeon) => IAction = (dungeon: Dungeon) => {
     if (dungeon.currentRoom.things.length < 1) {
         return {
             type: ACTION_TEXT,
@@ -122,8 +124,10 @@ const checkGet = (dungeon: Dungeon) => {
     let invCount = dungeon.inventory.length + 1; 
     if (dungeon.trophyCount === invCount) {
         return {
-            type: ACTION_WON
-        } as IAction;
+            type: ACTION_WON,
+            item: dungeon.currentRoom.things[0],
+            room: dungeon.currentRoom
+        } as IWonAction;
     }
     return {
         type: ACTION_GET,
