@@ -26,7 +26,7 @@ export const ThingSeed: IThing[] = [
     },
     {
         "name": "Nokia Lumia 1020",
-        "description": "a gorgeous yellow smart phone with beautiful camera and crisp display"
+        "description": "a gorgeous antique yellow smart phone with beautiful camera and crisp display"
     }, 
     {
         "name": "Conundrum",
