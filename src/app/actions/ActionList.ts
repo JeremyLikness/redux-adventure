@@ -13,15 +13,15 @@ export const ACTION_EAST: string = "east";
 export const ACTION_W: string = "w";
 export const ACTION_WEST: string = "west";
 
-export const ACTION_MOVE: string = "move";
 
 export const ACTION_I: string = "i";
 export const ACTION_INVENTORY: string = "inventory";
 
 export const ACTION_G: string = "g";
+
+// these are the actions actually composed to redux 
+export const ACTION_MOVE: string = "move";
 export const ACTION_GET: string = "get";
-
 export const ACTION_WON: string = "won";
-
 export const ACTION_TEXT: string = "text";
 
