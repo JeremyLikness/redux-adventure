@@ -6,6 +6,11 @@ Redux Adventure is a text-based adventure game written in Angular 2 and TypeScri
 
 ## Quick Start 
 
+### Online 
+[Play the Game](https://jeremylikness.github.io/redux-adventure/)
+
+### Local
+
 First, clone the repo: 
 
 `git clone https://github.com/JeremyLikness/redux-adventure.git`
