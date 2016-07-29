@@ -12,12 +12,12 @@ export class ParserComponent {
   @Output('action')
   public action: EventEmitter<string> = new EventEmitter<string>();
 
-  public text: string; 
+  public text: string = '';
 
   constructor() { }
 
   public parseInput($event: any) {
-    if ($event.keyCode === KEY_ENTER) {
+    if ($event && $event.keyCode === KEY_ENTER) {
       this.enterText();
     }
   }
