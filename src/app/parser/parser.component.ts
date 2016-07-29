@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { KEY_ENTER } from '../settings';
 
 @Component({
   moduleId: module.id,
@@ -16,7 +17,7 @@ export class ParserComponent {
   constructor() { }
 
   public parseInput($event: any) {
-    if ($event.keyCode === 13) {
+    if ($event.keyCode === KEY_ENTER) {
       this.enterText();
     }
   }

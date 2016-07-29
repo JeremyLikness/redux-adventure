@@ -11,17 +11,18 @@ import { Room } from './room';
 import { Dungeon } from './dungeon';
 import { DungeonMaster } from './dungeonMaster'; 
 import { ThingSeed } from '../seed/thingSeed';
+import { CELLS } from '../settings';
 
 describe('Room', () => {
     let dm: Dungeon = null;
     beforeEach(() => {
         dm = DungeonMaster();
     });
-  it('should generate 100 rooms',
+  it('should generate ' + CELLS + ' rooms',
      () => {
         expect(dm).not.toBeNull();
         expect(dm.rooms).not.toBeNull();
-        expect(dm.rooms.length).toBe(100);
+        expect(dm.rooms.length).toBe(CELLS);
   });
   it('should ensure every room has at most two walls', () => {
       for (let idx = 0; idx < dm.rooms.length; idx+=1) {

@@ -1,21 +1,24 @@
 import { Dungeon } from './dungeon';
 import { Room } from './room';
-import { Directions } from './directions';
+import { Directions, InversionMap } from './directions';
 import { GeneratorSeed } from '../seed/generatorSeed'; 
 import { ThingSeed } from '../seed/thingSeed';
+import {
+    GRID_SIZE,
+    CELLS
+} from '../settings';
 
 function extractRandom<T>(list: T[]): T {
     return list[Math.floor(Math.random() * list.length)];
 }
 
-const DirectionMap: number[] = [-10, 10, 1, -1];
-const InversionMap: Directions[] = [Directions.South, Directions.North, Directions.West, Directions.East];
+const DirectionMap: number[] = [-1 * GRID_SIZE, GRID_SIZE, 1, -1];
 
 let generateRooms = (dungeon: Dungeon) => {
     
     let seed: GeneratorSeed = new GeneratorSeed();
     
-    for (let x = 0; x < 100; x += 1) {
+    for (let x = 0; x < CELLS; x += 1) {
         let room = new Room();
         room.idx = x; 
         let description = extractRandom(seed.rooms).description;
@@ -40,35 +43,37 @@ let assign = (dungeon: Dungeon, idx: number, dir: Directions) => {
 
 let connectRooms = (dungeon: Dungeon) => {
 
+    let gridLessOne = GRID_SIZE - 1;
+
     // firts put walls around the perimeter and connect all internal rooms (the connection is converse, so connecting 1 -> 2 connects 2 -> 1)
-    for (let northToSouth = 0; northToSouth < 10; northToSouth += 1) {
-        for (let westToEast = 0; westToEast < 10; westToEast += 1) {
-            let cell = northToSouth * 10 + westToEast;
+    for (let northToSouth = 0; northToSouth < GRID_SIZE; northToSouth += 1) {
+        for (let westToEast = 0; westToEast < GRID_SIZE; westToEast += 1) {
+            let cell = northToSouth * GRID_SIZE + westToEast;
             let room = dungeon.rooms[cell];
             if (northToSouth === 0) {
                 room.walls.push(Directions.North);
             }
-            if (northToSouth === 9) {
+            if (northToSouth === gridLessOne) {
                 room.walls.push(Directions.South);
             }
             if (westToEast === 0) {
                 room.walls.push(Directions.West);
             }
-            if (westToEast === 9) {
+            if (westToEast === gridLessOne) {
                 room.walls.push(Directions.East);
             }
-            if (northToSouth < 9) {
+            if (northToSouth < gridLessOne) {
                 dungeon = assign(dungeon, cell, Directions.South);
             }
-            if (westToEast < 9) {
+            if (westToEast < gridLessOne) {
                 dungeon = assign(dungeon, cell, Directions.East);
             }
         }
     }
 
-    for (let northToSouth = 1; northToSouth < 9; northToSouth += 1) {
-        for (let westToEast = 1; westToEast < 9; westToEast += 1) {
-            let cell = northToSouth * 10 + westToEast;
+    for (let northToSouth = 1; northToSouth < gridLessOne; northToSouth += 1) {
+        for (let westToEast = 1; westToEast < gridLessOne; westToEast += 1) {
+            let cell = northToSouth * GRID_SIZE + westToEast;
             let room = dungeon.rooms[cell];
             if (room.walls.length > 0) {
                 continue;
@@ -99,7 +104,7 @@ let placeArtifacts = (dungeon: Dungeon) => {
     dungeon.trophyCount = ThingSeed.length;
     for (let idx = 0; idx < ThingSeed.length; idx += 1) {
         let foundRoom = false; 
-        let roomIdx = Math.floor(Math.random()*100); 
+        let roomIdx = Math.floor(Math.random()*CELLS); 
         let room = dungeon.rooms[roomIdx];
         room.things.push(ThingSeed[idx]);
     }
@@ -113,7 +118,7 @@ export const DungeonMaster: () => Dungeon = () => {
     dungeon = generateRooms(dungeon);
     dungeon = connectRooms(dungeon);
     dungeon = placeArtifacts(dungeon);
-    dungeon.currentRoomIdx = Math.floor(Math.random()*100); 
+    dungeon.currentRoomIdx = Math.floor(Math.random()*CELLS); 
     dungeon.currentRoom.visited = true;
     dungeon.console.push(dungeon.currentRoom.longDescription);
 

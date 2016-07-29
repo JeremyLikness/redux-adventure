@@ -4,3 +4,5 @@ export enum Directions {
     East,
     West
 }
+
+export const InversionMap: Directions[] = [Directions.South, Directions.North, Directions.West, Directions.East];

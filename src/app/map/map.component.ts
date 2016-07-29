@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Room } from '../world/room';
 import { CellComponent } from '../cell';
+import { GRID_SIZE } from '../settings';
 
 @Component({
   moduleId: module.id,
@@ -20,10 +21,10 @@ export class MapComponent {
   public set rooms(val: Room[]) {
     if (val && val.length > 0) {
       this.grid = []; 
-      for (let northToSouth = 0; northToSouth < 10; northToSouth += 1) {
+      for (let northToSouth = 0; northToSouth < GRID_SIZE; northToSouth += 1) {
         let row: Room[] = [];
-        for (let westToEast = 0; westToEast < 10; westToEast += 1) {
-          let idx = northToSouth * 10 + westToEast;
+        for (let westToEast = 0; westToEast < GRID_SIZE; westToEast += 1) {
+          let idx = northToSouth * GRID_SIZE + westToEast;
           row.push(val[idx]);
         }
         this.grid.push(row);
