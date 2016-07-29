@@ -1,0 +1,18 @@
+div.grid {
+    margin-top: 5px;
+    width: 290px;
+    height: 182px;
+    background: lightgray;
+    border: solid black 1px;
+    text-align: center; 
+    overflow: none;
+}
+
+div.row {
+    text-align: center;
+    width: 288px; 
+    height: 16px;
+    border: solid 1px white;
+    background: lightgray;
+    overflow: none;
+}
