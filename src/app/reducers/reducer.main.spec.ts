@@ -37,8 +37,7 @@ describe('main', () => {
         dungeon.currentRoomIdx = 0;
         dungeon.trophyCount = 2; 
 
-        room1.idx = 0;
-        room2.idx = 1;
+        Room.setIds(dungeon.rooms);
 
         Object.freeze(thing1);
         freezeRoom(room1);

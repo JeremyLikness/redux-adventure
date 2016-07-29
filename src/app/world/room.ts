@@ -10,6 +10,12 @@ export class Room {
     public idx: number = -1;
     public visited: boolean = false;
 
+    public static setIds(rooms: Room[]): void {
+        for (let idx = 0; idx < rooms.length; idx += 1) {
+            rooms[idx].idx = idx;
+        }
+    }
+
     public get longDescription(): string {
         let text = this.name + ': ' + this.description + '\r\n';
         if (this.things.length > 0) {

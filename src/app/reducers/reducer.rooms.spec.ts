@@ -28,9 +28,8 @@ describe('rooms', () => {
         room2.things.push(thing2);
         room3 = new Room();
         roomList = [room1, room2, room3];
-        room1.idx = 0;
-        room2.idx = 1,
-        room3.idx = 2;
+        
+        Room.setIds(roomList);
 
         Object.freeze(thing1);
         Object.freeze(thing2);
