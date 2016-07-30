@@ -2,6 +2,8 @@
 
 Redux Adventure is a text-based adventure game written in Angular 2 and TypeScript that leverages Redux. It is a simple implementation designed to both learn and teach the principles of an app that relies on Redux for state management.
 
+[Read the blog post](http://csharperimage.jeremylikness.com/2016/07/an-adventure-in-redux-building-redux.html) to learn more about how the app is organized, structured, and the role Redux plays in driving gameplay.
+
 ![Redux Adventure](./thumbnail.gif)
 
 ## Quick Start 
