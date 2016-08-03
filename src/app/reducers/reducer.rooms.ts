@@ -14,7 +14,7 @@ export const rooms = (state: Room[] = [], action: IAction) => {
     if (action.type === ACTION_MOVE) {
         let moveAction = action as IRoomAction;
         let idx = moveAction.newRoom.idx; 
-        return [...state.slice(0, idx), room(moveAction.newRoom, moveAction), ...state.slice(idx+1)];
+        return [...state.slice(0, idx), room(state[moveAction.newRoom.idx], moveAction), ...state.slice(idx+1)];
     }
 
     return state;
