@@ -12,9 +12,9 @@ import { CellComponent } from './cell';
 @NgModule({
   declarations: [
     ReduxAdventureComponent,
-    ConsoleComponent, 
-	 ParserComponent, 
-	 MapComponent,
+    ConsoleComponent,
+    ParserComponent,
+    MapComponent,
     CellComponent
   ],
   imports: [

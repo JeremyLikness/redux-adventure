@@ -1,24 +1,23 @@
-import { Thing } from '../world/thing';
 import { things } from './reducer.things';
 import { Room } from '../world/room';
-import { IAction, IInventoryAction, IRoomAction } from '../actions/createAction';
+import { IRoomAction } from '../actions/createAction';
 import { ACTION_GET, ACTION_MOVE } from '../actions/ActionList';
+import { Action } from 'redux';
 
-export const room = (state: Room = new Room(), action: IAction) => {
+export const room = (state: Room = new Room(), action: Action) => {
 
-    let room = new Room();
-    room.idx = state.idx;
-    room.directions = [...state.directions];
-    room.walls = [...state.walls];
-    room.name = state.name; 
-    room.description = state.description; 
-    room.visited = state.visited;
-    room.things = action.type === ACTION_GET ? things(state.things, action) : [...state.things]; 
-    
+    let newRoom = new Room();
+    newRoom.idx = state.idx;
+    newRoom.directions = [...state.directions];
+    newRoom.walls = [...state.walls];
+    newRoom.name = state.name; 
+    newRoom.description = state.description; 
+    newRoom.visited = state.visited;
+    newRoom.things = action.type === ACTION_GET ? things(state.things, action) : [...state.things]; 
+
     if (action.type === ACTION_MOVE && (<IRoomAction>action).newRoom.visited === false) {
-        room.visited = true;
+        newRoom.visited = true;
     }
 
-    return room;
-
-}
+    return newRoom;
+};

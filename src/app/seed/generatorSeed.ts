@@ -4,89 +4,89 @@ export interface HasDescription {
 
 export class GeneratorSeed {
     public rooms: HasDescription[] = [{
-    "description":"rusty"
+    'description' : 'rusty'
 }, {
-    "description":"dusty"
+    'description' : 'dusty'
 }, {
-    "description":"moldy"
+    'description' : 'moldy'
 }, {
-    "description":"damp"
+    'description' : 'damp'
 }, {
-    "description":"dark"
+    'description' : 'dark'
 }, {
-    "description":"well-lit"
+    'description' : 'well-lit'
 }, {
-    "description":"small"
+    'description' : 'small'
 }, {
-    "description":"large"
+    'description' : 'large'
 }, {
-    "description":"cramped"
+    'description' : 'cramped'
 }, {
-    "description":"spacious"
+    'description' : 'spacious'
 }, {
-    "description":"cramped"
+    'description' : 'cramped'
 }, {
-    "description":"clean"
+    'description' : 'clean'
 }, {
-    "description":"comfortable"
+    'description' : 'comfortable'
 }, {
-    "description":"smelly"
+    'description' : 'smelly'
 }, {
-    "description":"warm"
+    'description' : 'warm'
 }, {
-    "description":"hot"
+    'description' : 'hot'
 }, {
-    "description":"cold"
-}]
+    'description' : 'cold'
+}];
 
 public walls: HasDescription[] = [{
-    "description":"dark stone walls"
+    'description' : 'dark stone walls'
 }, {
-    "description":"rough, rocky walls"
+    'description' : 'rough, rocky walls'
 }, {
-    "description":"soft walls of packed dirt"
+    'description' : 'soft walls of packed dirt'
 }, {
-    "description":"crumbling brick walls"
+    'description' : 'crumbling brick walls'
 }, {
-    "description":"walls made of bright red bricks"
+    'description' : 'walls made of bright red bricks'
 }, {
-    "description":"smooth black walls with a glassy texture"
+    'description' : 'smooth black walls with a glassy texture'
 }, {
-    "description":"stone walls filled with exposed fossils"
+    'description' : 'stone walls filled with exposed fossils'
 }, {
-    "description":"walls made of large fitted concrete blocks"
+    'description' : 'walls made of large fitted concrete blocks'
 }, {
-    "description":"sandstone walls"
+    'description' : 'sandstone walls'
 }, {
-    "description":"rocky walls with bands of color"
+    'description' : 'rocky walls with bands of color'
 }, {
-    "description":"rotting wallpaper with an unrecognizeable pattern"
+    'description' : 'rotting wallpaper with an unrecognizeable pattern'
 }
-]
+];
 
 public features: HasDescription[] = [{
-    "description":"There is a crude table in the middle of the room."
-},{
-    "description":"In the center of the room stands a dry fountain."
-},{
-    "description":"There is broken pottery scattered across the floor."
-},{
-    "description":"In the middle of the room is large pile of rust."
-},{
-    "description":"A rotting cot is tucked into the corner."
-},{
-    "description":"In the center of the floor is small drain."
-},{
-    "description":"The room is encircled by flickering torches in sconces on the walls."
-},{
-    "description":"The floor is covered with moldy hay."
-},{
-    "description":"In the center of the room is a deep, dark well with no chain or bucket."
-},{
-    "description":"There are no other features of note."
-},{
-    "description":"The room is otherwise empty."
-},{
-    "description":"You notice nothing else interesting about the room."
-}]
-}; 
+    'description' : 'There is a crude table in the middle of the room.'
+}, {
+    'description' : 'In the center of the room stands a dry fountain.'
+}, {
+    'description' : 'There is broken pottery scattered across the floor.'
+}, {
+    'description' : 'In the middle of the room is large pile of rust.'
+}, {
+    'description' : 'A rotting cot is tucked into the corner.'
+}, {
+    'description' : 'In the center of the floor is small drain.'
+}, {
+    'description' : 'The room is encircled by flickering torches in sconces on the walls.'
+}, {
+    'description' : 'The floor is covered with moldy hay.'
+}, {
+    'description' : 'In the center of the room is a deep, dark well with no chain or bucket.'
+}, {
+    'description' : 'There are no other features of note.'
+}, {
+    'description' : 'The room is otherwise empty.'
+}, {
+    'description' : 'You notice nothing else interesting about the room.'
+}];
+};

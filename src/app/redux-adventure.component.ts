@@ -11,18 +11,18 @@ import { createAction } from './actions/createAction';
 })
 export class ReduxAdventureComponent {
 
-  private _store: Store<Dungeon>; 
+  private store: Store<Dungeon>;
 
   public dungeon: Dungeon;
-  
+
   constructor() {
-    this._store = createStore(mainReducer);
-    this.dungeon = this._store.getState();
-    this._store.subscribe(() => this.dungeon = this._store.getState());
+    this.store = createStore(mainReducer);
+    this.dungeon = this.store.getState();
+    this.store.subscribe(() => this.dungeon = this.store.getState());
   }
   title = 'Welcome to the Redux Adventure!';
 
   public handleAction(action: string): void {
-    this._store.dispatch(createAction(this._store.getState(), action));
+    this.store.dispatch(createAction(this.store.getState(), action));
   }
 }

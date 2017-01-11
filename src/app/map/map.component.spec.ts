@@ -15,7 +15,7 @@ describe('Component: Map', () => {
   it('should generate a grid that is a matrix of GRID_SIZE x GRID_SIZE', () => {
 
     let rooms: Room[] = [];
-    let x = GRID_SIZE*GRID_SIZE;
+    let x = GRID_SIZE * GRID_SIZE;
     while (x -= 1) {
       rooms.push(new Room());
     }

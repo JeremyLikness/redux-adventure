@@ -31,11 +31,11 @@ export class Room {
             }
         }
         if (exits.length == 1) {
-            text += "You see an exit to the " + Directions[exits[0]];
+            text += 'You see an exit to the ' + Directions[exits[0]];
         }
         else {
             let directionsText = exits.map(exit => Directions[exit]);
-            text += "You see exits in the directions: ";
+            text += 'You see exits in the directions: ';
             text += directionsText.join(', ');
         }
         return text;
@@ -48,7 +48,7 @@ export class Room {
     public getDirection(dir): Room {
         return this.directions[dir];
     }
-    
+
     public get north(): Room {
         return this.directions[Directions.North];
     }
@@ -65,5 +65,5 @@ export class Room {
         return this.directions[Directions.West];
     }
 
-    public things: Thing[] = []; 
+    public things: Thing[] = [];
 }

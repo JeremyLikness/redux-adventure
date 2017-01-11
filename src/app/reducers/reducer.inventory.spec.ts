@@ -1,11 +1,11 @@
 import { Thing } from '../world/thing';
-import { IAction, IInventoryAction } from '../actions/createAction';
+import { IInventoryAction } from '../actions/createAction';
 import { ACTION_GET } from '../actions/ActionList';
 import { inventory } from './reducer.inventory';
 
 describe('inventory', () => {
   it('should do nothing for non-inventory actions',
-     () => { 
+     () => {
         let state = [];
         Object.freeze(state);
         expect(inventory(state, { type: 'TEST'})).toEqual([]);

@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 import { ParserComponent } from './parser.component';
 import { KEY_ENTER } from '../settings';
 
-const INPUT: string = ' Testing ';
+const INPUT = ' Testing ';
 const COMMAND: string = INPUT.toLowerCase().trim();
 
 describe('Component: Parser', () => {
@@ -17,7 +17,7 @@ describe('Component: Parser', () => {
   it('should ignore empty text', () => {
     let component = new ParserComponent();
     let sub = component.action.subscribe(() => {
-      throw new Error('Test failed - should not emit an event.')
+      throw new Error('Test failed - should not emit an event.');
     });
     component.enterText();
     sub.unsubscribe();
@@ -25,7 +25,7 @@ describe('Component: Parser', () => {
 
   it('should emit a command when enterText() is fired', (done) => {
     let component = new ParserComponent();
-    component.text = INPUT; 
+    component.text = INPUT;
     let sub = component.action.subscribe((command) => {
       expect(command).toEqual(COMMAND);
       done();
@@ -38,20 +38,20 @@ describe('Component: Parser', () => {
     let component = new ParserComponent();
     component.text = INPUT;
     let sub = component.action.subscribe(() => {
-      throw new Error('Test failed - should not emit an event.')
+      throw new Error('Test failed - should not emit an event.');
     });
-    component.parseInput({keyCode:-1});
+    component.parseInput({keyCode: -1});
     sub.unsubscribe();
   });
 
   it('should emit a command when ENTER is pressed', (done) => {
     let component = new ParserComponent();
-    component.text = INPUT; 
+    component.text = INPUT;
     let sub = component.action.subscribe((command) => {
       expect(command).toEqual(COMMAND);
       done();
     });
-    component.parseInput({keyCode:KEY_ENTER});
+    component.parseInput({keyCode: KEY_ENTER});
     sub.unsubscribe();
   });
 });

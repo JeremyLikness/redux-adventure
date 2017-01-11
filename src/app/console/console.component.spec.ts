@@ -20,11 +20,11 @@ describe('Component: Console', () => {
     let element: ElementRef = {
       nativeElement: div
     };
-    component.consoleDiv = element; 
+    component.consoleDiv = element;
     component.ngOnChanges();
     setTimeout(() => {
       expect(div.scrollTop).toEqual(div.scrollHeight);
       done();
-    },0);
+    }, 0);
   });
 });

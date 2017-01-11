@@ -5,15 +5,15 @@ import { DebugElement, ElementRef } from '@angular/core';
 import { CellComponent } from './cell.component';
 import { Room } from '../world/room';
 import { Directions } from '../world/directions';
-import { 
-  NOT_VISITED_COLOR, 
+import {
+  NOT_VISITED_COLOR,
   VISITED_COLOR,
   CURRENT_COLOR,
   WALL_COLOR
 } from '../settings';
 
 describe('Component: Cell', () => {
-  let element: ElementRef = null; 
+  let element: ElementRef = null;
   let div = null;
   let room: Room = null;
   let component: CellComponent = null;
@@ -23,7 +23,7 @@ describe('Component: Cell', () => {
   });
   describe('processStyle', () => {
     beforeEach(() => {
-      room = new Room(); 
+      room = new Room();
       div = {
         style: {
           background: null,
@@ -34,13 +34,13 @@ describe('Component: Cell', () => {
         }
       };
       element = {
-        nativeElement: div 
+        nativeElement: div
       };
       component = new CellComponent();
     });
 
     it ('should set background to the not visited color', () => {
-      component.room = room; 
+      component.room = room;
       component.cellDiv = element;
       expect(div.style.background).toBe(NOT_VISITED_COLOR);
     });

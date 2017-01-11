@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild, ElementRef, OnChanges } from '@angular/core';
 import { Room } from '../world/room';
-import { 
-  NOT_VISITED_COLOR, 
+import {
+  NOT_VISITED_COLOR,
   VISITED_COLOR,
   CURRENT_COLOR,
   WALL_COLOR
@@ -22,7 +22,7 @@ export class CellComponent implements OnChanges {
     this.processStyle();
   }
 
-  @Input('room') 
+  @Input('room')
   public room: Room;
 
   @Input('isCurrentRoom')
@@ -54,7 +54,7 @@ export class CellComponent implements OnChanges {
       }
       if (this.room.east === null) {
         this.div.style.borderRightColor = WALL_COLOR;
-      }      
+      }
     }
   }
 }
