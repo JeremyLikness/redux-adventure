@@ -2,7 +2,6 @@
 
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { describe, it, expect, async, inject } from '@angular/core/testing';
 import { MapComponent } from './map.component';
 import { GRID_SIZE } from '../settings';
 import { Room } from '../world/room';
@@ -16,7 +15,7 @@ describe('Component: Map', () => {
   it('should generate a grid that is a matrix of GRID_SIZE x GRID_SIZE', () => {
 
     let rooms: Room[] = [];
-    let x = GRID_SIZE*GRID_SIZE;
+    let x = GRID_SIZE * GRID_SIZE;
     while (x -= 1) {
       rooms.push(new Room());
     }

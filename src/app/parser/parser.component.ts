@@ -2,10 +2,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { KEY_ENTER } from '../settings';
 
 @Component({
-  moduleId: module.id,
   selector: 'parser',
-  templateUrl: 'parser.component.html',
-  styleUrls: ['parser.component.css']
+  templateUrl: './parser.component.html',
+  styleUrls: ['./parser.component.css']
 })
 export class ParserComponent {
 

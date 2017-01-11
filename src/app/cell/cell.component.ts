@@ -1,17 +1,16 @@
 import { Component, Input, ViewChild, ElementRef, OnChanges } from '@angular/core';
 import { Room } from '../world/room';
-import { 
-  NOT_VISITED_COLOR, 
+import {
+  NOT_VISITED_COLOR,
   VISITED_COLOR,
   CURRENT_COLOR,
   WALL_COLOR
 } from '../settings';
 
 @Component({
-  moduleId: module.id,
   selector: 'cell',
-  templateUrl: 'cell.component.html',
-  styleUrls: ['cell.component.css']
+  templateUrl: './cell.component.html',
+  styleUrls: ['./cell.component.css']
 })
 export class CellComponent implements OnChanges {
 
@@ -23,7 +22,7 @@ export class CellComponent implements OnChanges {
     this.processStyle();
   }
 
-  @Input('room') 
+  @Input('room')
   public room: Room;
 
   @Input('isCurrentRoom')
@@ -38,7 +37,7 @@ export class CellComponent implements OnChanges {
   }
 
   private processStyle(): void {
-    if (!this.room.visited) {
+    if (!this.room || !this.room.visited) {
       this.div.style.background = NOT_VISITED_COLOR;
       return;
     }
@@ -55,7 +54,7 @@ export class CellComponent implements OnChanges {
       }
       if (this.room.east === null) {
         this.div.style.borderRightColor = WALL_COLOR;
-      }      
+      }
     }
   }
 }

@@ -1,12 +1,4 @@
-import {
-  describe,
-  expect,
-  it,
-  inject
-} from '@angular/core/testing';
-
-import { Thing } from '../world/thing';
-import { IAction, ITextAction } from '../actions/createAction';
+import { ITextAction } from '../actions/createAction';
 import { ACTION_TEXT } from '../actions/ActionList';
 import { console } from './reducer.console';
 

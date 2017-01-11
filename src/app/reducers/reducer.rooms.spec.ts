@@ -1,14 +1,6 @@
-import {
-  describe,
-  expect,
-  beforeEach,
-  it,
-  inject
-} from '@angular/core/testing';
-
 import { Thing } from '../world/thing';
 import { Room } from '../world/room';
-import { IAction, IInventoryAction } from '../actions/createAction';
+import { IInventoryAction } from '../actions/createAction';
 import { ACTION_GET } from '../actions/ActionList';
 import { rooms } from './reducer.rooms';
 import { freezeRoom } from './freeze.room.spec';
@@ -28,7 +20,7 @@ describe('rooms', () => {
         room2.things.push(thing2);
         room3 = new Room();
         roomList = [room1, room2, room3];
-        
+
         Room.setIds(roomList);
 
         Object.freeze(thing1);
@@ -38,16 +30,16 @@ describe('rooms', () => {
         freezeRoom(room3);
         Object.freeze(roomList);
     });
-  
+
     it('should do nothing for non-inventory actions', () => {
         expect(rooms(roomList, { type: 'TEST'})).toEqual(roomList);
     });
-    
+
     it('should remove the inventory if it is a get action', () => {
         let action = {
             type: ACTION_GET,
             item: thing2,
-            room: room2 
+            room: room2
         } as IInventoryAction;
 
         let room2empty = new Room();

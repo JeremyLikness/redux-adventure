@@ -1,10 +1,3 @@
-import {
-  describe,
-  expect,
-  it,
-  inject
-} from '@angular/core/testing';
-
 import { Directions } from './directions';
 import { Room } from './room';
 
@@ -13,8 +6,7 @@ describe('Room', () => {
      () => {
         let room1 = new Room(),
         room2 = new Room(),
-        room3 = new Room(),
-        room4 = new Room(); 
+        room3 = new Room();
         room1.setDirection(Directions.East, room2);
         room1.setDirection(Directions.South, room3);
         expect(room1.east).toBe(room2);

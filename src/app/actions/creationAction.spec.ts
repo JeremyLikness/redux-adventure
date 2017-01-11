@@ -1,11 +1,3 @@
-import {
-  describe,
-  expect,
-  beforeEach,
-  it,
-  inject
-} from '@angular/core/testing';
-
 import { Directions } from '../world/directions';
 import { Room } from '../world/room';
 import { Dungeon } from '../world/dungeon';
@@ -22,9 +14,9 @@ import {
 } from './ActionList';
 
 describe('createAction', () => {
-    
+
     let dm: Dungeon = null, room1: Room = null, room2: Room = null;
-    
+
     beforeEach(() => {
         dm = new Dungeon();
         room1 = new Room();
@@ -82,7 +74,7 @@ describe('createAction', () => {
     describe('unknown', () => {
         it('should return a text action', () => {
             expect(createAction(dm, 'Random stuff').type).toEqual(ACTION_TEXT);
-        })
-    })
+        });
+    });
 
 });

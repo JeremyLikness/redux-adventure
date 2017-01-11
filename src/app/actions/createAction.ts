@@ -2,9 +2,10 @@ import { Dungeon } from '../world/dungeon';
 import { Room } from '../world/room';
 import { Thing } from '../world/thing';
 import { Directions } from '../world/directions';
+import { Action } from 'redux';
 
-import { 
-    ACTION_E, 
+import {
+    ACTION_E,
     ACTION_EAST,
     ACTION_G,
     ACTION_GET,
@@ -23,22 +24,18 @@ import {
     ACTION_MOVE
     } from './ActionList';
 
-export interface IAction {
-    type: string; 
-}
-
-export interface ITextAction extends IAction {
+export interface ITextAction extends Action {
     type: string;
     text: string;
 }
 
-export interface IRoomAction extends IAction {
+export interface IRoomAction extends Action {
     type: string;
     direction: Directions;
     newRoom: Room;
 }
 
-export interface IInventoryAction extends IAction {
+export interface IInventoryAction extends Action {
     type: string;
     item: Thing;
     room: Room;
@@ -47,7 +44,7 @@ export interface IInventoryAction extends IAction {
 export interface IWonAction extends IInventoryAction { }
 
 export interface IActionCreator {
-    (dungeon: Dungeon, actionText: string): IAction;
+    (dungeon: Dungeon, actionText: string): Action;
 }
 
 export const createAction: IActionCreator = (dungeon: Dungeon, actionText: string) => {
@@ -93,7 +90,7 @@ const checkDirection = (dungeon: Dungeon, dir: Directions) => {
         return {
             type: ACTION_TEXT,
             text: 'You bump into the wall. OUCH!'
-        } as IAction;
+        } as Action;
     }
     return {
         type: ACTION_MOVE, 
@@ -115,7 +112,7 @@ const checkInventory = (dungeon: Dungeon) => {
     } as ITextAction;
 }
 
-const checkGet: (dungeon: Dungeon) => IAction = (dungeon: Dungeon) => {
+const checkGet: (dungeon: Dungeon) => Action = (dungeon: Dungeon) => {
     if (dungeon.currentRoom.things.length < 1) {
         return {
             type: ACTION_TEXT,
@@ -135,5 +132,5 @@ const checkGet: (dungeon: Dungeon) => IAction = (dungeon: Dungeon) => {
         type: ACTION_GET,
         item: dungeon.currentRoom.things[0],
         room: dungeon.currentRoom
-    } as IInventoryAction; 
+    } as IInventoryAction;
 }

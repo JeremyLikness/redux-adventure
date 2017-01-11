@@ -1,13 +1,6 @@
-import {
-  describe,
-  expect,
-  it,
-  inject
-} from '@angular/core/testing';
-
 import { Thing } from '../world/thing';
 import { Room } from '../world/room';
-import { IAction, IInventoryAction } from '../actions/createAction';
+import { IInventoryAction } from '../actions/createAction';
 import { ACTION_GET } from '../actions/ActionList';
 import { room } from './reducer.room';
 import { freezeRoom } from './freeze.room.spec';
@@ -31,8 +24,6 @@ describe('room', () => {
             type: ACTION_GET,
             item: oldThing
         } as IInventoryAction;
-
-        let expectedState = newRoom;
 
         Object.freeze(oldThing);
         freezeRoom(oldRoom);

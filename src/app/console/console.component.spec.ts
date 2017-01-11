@@ -2,7 +2,6 @@
 
 import { By }           from '@angular/platform-browser';
 import { DebugElement, ElementRef } from '@angular/core';
-import { describe, it, expect, async, inject } from '@angular/core/testing';
 import { ConsoleComponent } from './console.component';
 
 describe('Component: Console', () => {
@@ -21,11 +20,11 @@ describe('Component: Console', () => {
     let element: ElementRef = {
       nativeElement: div
     };
-    component.consoleDiv = element; 
+    component.consoleDiv = element;
     component.ngOnChanges();
     setTimeout(() => {
       expect(div.scrollTop).toEqual(div.scrollHeight);
       done();
-    },0);
+    }, 0);
   });
 });
