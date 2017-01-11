@@ -1,14 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Room } from '../world/room';
-import { CellComponent } from '../cell';
 import { GRID_SIZE } from '../settings';
 
 @Component({
-  moduleId: module.id,
   selector: 'map',
-  templateUrl: 'map.component.html',
-  styleUrls: ['map.component.css'],
-  directives: [CellComponent]
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.css']
 })
 export class MapComponent {
 

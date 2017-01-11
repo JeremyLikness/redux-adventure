@@ -2,7 +2,6 @@
 
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { describe, it, expect, async, inject } from '@angular/core/testing';
 import { ParserComponent } from './parser.component';
 import { KEY_ENTER } from '../settings';
 

@@ -2,7 +2,6 @@
 
 import { By }           from '@angular/platform-browser';
 import { DebugElement, ElementRef } from '@angular/core';
-import { beforeEach, describe, it, expect, async, inject } from '@angular/core/testing';
 import { CellComponent } from './cell.component';
 import { Room } from '../world/room';
 import { Directions } from '../world/directions';

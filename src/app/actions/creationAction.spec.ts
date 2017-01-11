@@ -1,11 +1,3 @@
-import {
-  describe,
-  expect,
-  beforeEach,
-  it,
-  inject
-} from '@angular/core/testing';
-
 import { Directions } from '../world/directions';
 import { Room } from '../world/room';
 import { Dungeon } from '../world/dungeon';

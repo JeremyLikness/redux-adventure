@@ -1,10 +1,9 @@
 import { Component, Input, ElementRef, OnChanges, ViewChild } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'console',
-  templateUrl: 'console.component.html',
-  styleUrls: ['console.component.css']
+  templateUrl: './console.component.html',
+  styleUrls: ['./console.component.css']
 })
 export class ConsoleComponent implements OnChanges {
 

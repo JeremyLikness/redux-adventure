@@ -2,7 +2,6 @@
 
 import { By }           from '@angular/platform-browser';
 import { DebugElement, ElementRef } from '@angular/core';
-import { describe, it, expect, async, inject } from '@angular/core/testing';
 import { ConsoleComponent } from './console.component';
 
 describe('Component: Console', () => {

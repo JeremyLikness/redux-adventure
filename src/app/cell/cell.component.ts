@@ -8,10 +8,9 @@ import {
 } from '../settings';
 
 @Component({
-  moduleId: module.id,
   selector: 'cell',
-  templateUrl: 'cell.component.html',
-  styleUrls: ['cell.component.css']
+  templateUrl: './cell.component.html',
+  styleUrls: ['./cell.component.css']
 })
 export class CellComponent implements OnChanges {
 
@@ -38,7 +37,7 @@ export class CellComponent implements OnChanges {
   }
 
   private processStyle(): void {
-    if (!this.room.visited) {
+    if (!this.room || !this.room.visited) {
       this.div.style.background = NOT_VISITED_COLOR;
       return;
     }

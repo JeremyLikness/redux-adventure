@@ -2,7 +2,6 @@
 
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { describe, it, expect, async, inject } from '@angular/core/testing';
 import { MapComponent } from './map.component';
 import { GRID_SIZE } from '../settings';
 import { Room } from '../world/room';

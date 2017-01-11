@@ -1,10 +1,3 @@
-import {
-  describe,
-  expect,
-  it,
-  inject
-} from '@angular/core/testing';
-
 import { Thing } from '../world/thing';
 import { Room } from '../world/room';
 import { IAction, IInventoryAction } from '../actions/createAction';
